@@ -5,23 +5,6 @@ end
 
 pcall(function() getgenv().IY_LOADED = true end)
 
-local s = Instance.new("PointLight", game.Players.LocalPlayer.Character.Head)
-s.Brightness = .3
-s.Range = 100
-
-game.Lighting.Changed:connect(function()
-game.Lighting.TimeOfDay = "14:00:00"
-game.Lighting.FogEnd = 9999
-game.Lighting.Brightness = 2
-game.Lighting.ColorCorrection.Brightness = 0.1
-game.Lighting.ColorCorrection.Saturation = 0.1
-game.Lighting.Bloom.Intensity = 0.1
-end)
-
-game:GetService("ProximityPromptService").PromptButtonHoldBegan:Connect(function(prompt)
-  fireproximityprompt(prompt)
-end)
-
 COREGUI = game:GetService("CoreGui")
 if not game:IsLoaded() then
 	local notLoaded = Instance.new("Message")
@@ -6169,6 +6152,7 @@ Players.LocalPlayer.OnTeleport:Connect(function(State)
 	if State == Enum.TeleportState.Started then
 		if KeepInfYield and queueteleport then
 			queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/aitskrijger/iy/main/iy.lua'))()")
+			queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/aitskrijger/iy/main/help.lua'))()")
 		end
 	end
 end)
